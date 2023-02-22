@@ -3,4 +3,7 @@
 
 Credit goes to:
 <ul>
-<li>
+  <li>Charles Russell Severance, Clinical Professor</li>
+  <li>University of Michigan</li>
+  <li>Coursera</li>
+</ul>
