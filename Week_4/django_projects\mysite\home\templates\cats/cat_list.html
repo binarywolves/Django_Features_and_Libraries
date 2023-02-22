@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- You should edit or add a meta tag in your <head> area of each page you generate as -->
+<meta name="dj4e" content="4af35259e040dfc3e952faa7e78f30cf">
+
+</head>
+<body>
+
+{% extends "base_bootstrap.html" %}
+
+{% block content %}
+  <h1>Cat List</h1>
+  {% if cat_list %}
+  <ul>
+    {% for cat in cat_list %}
+      <li>
+          {{ cat.nickname }} ({{ cat.breed }})
+          (<a href="{% url 'cats:cat_update' cat.id %}">Update</a> |
+          <a href="{% url 'cats:cat_delete' cat.id %}">Delete</a>) <br/>
+          {{ cat.weight }} ({{ cat.foods }})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no cats in the library.</p>
+  {% endif %}
+  <p>
+    {% if breed_count > 0 %}
+      <a href="{% url 'cats:cat_create' %}">Add a cat</a>
+    {% else %}
+      Please add a breed before adding a cat.
+    {% endif %}
+  </p>
+  <p>
+  <a href="{% url 'cats:breed_list' %}">View breeds</a> ({{ breed_count }}) |
+    <a href="{% url 'cats:breed_create' %}">Add a breed</a>
+  </p>
+{% endblock %}
+</body>
+</html>
